@@ -14,3 +14,13 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Shop)
 class ShopAdmin(admin.ModelAdmin):
     list_display = ['name', 'category']
+
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['name', 'category','shop','price','available']
+    list_filter = ['available', 'category','shop']
+    list_editable = ['price','available']
+    prepopulated_fields = {'slug': ('name',)}
+
